@@ -183,7 +183,7 @@ window.view = {
 			alert('Incorrect datatype of input variables(arguments). The value of the sides of a rectangle need not be integers. Try again.')
 		else if ( c !== 'float' )
 			alert('Incorrect datatype for return type. The value of the area of a rectangle need not be an integer. Try again.')
-		else if ( d !== 'a*b' )
+		else if ( d !== '(1/2)*a*b' )
 			alert('Incorrect formula for calculating the area of a rectangle. Try again.')
 		else
 			this.approveRectangleInputs()
@@ -268,7 +268,7 @@ window.view = {
 		document.getElementById('functionSquare').innerHTML += 'float area_sq (float a)<br>{<br> &emsp; float area = a*a;<br>&emsp; return area;<br>}'
 	},
 	displayFunctionForRectangle: function() {
-		document.getElementById('functionRectangle').innerHTML += 'float area_rect (float a,float b)<br>{<br> &emsp; float area = a*b;<br> &emsp; return area;<br>}'
+		document.getElementById('functionRectangle').innerHTML += 'float area_rightangletriangle (float a,float b)<br>{<br> &emsp; float area = (1/2)*a*b;<br> &emsp; return area;<br>}'
 	},
 	displayFunctionForTriangle: function() {
 		document.getElementById('functionTriangle').innerHTML += 'float area_triangle (float a)<br>{<br>&emsp;float area = (sqrt(3)/4.0)*a*a;<br>&emsp;return area;<br>}'
@@ -318,7 +318,7 @@ window.view = {
 		alert( 'area from function call ' + String( i + 1 ) + ' ) : ' + functionCall + ' is ' + this.area )
 		this.correctInputs ++
 	},
-	area_rect: function( param, functionCall ) {
+	area_rightangletriangle: function( param, functionCall ) {
 		this.area = Number(param[0]) * Number(param[1])
 		this.totalArea += this.area
 		alert( 'area from function call ' + String( i + 1 ) + ' ) : ' + functionCall + ' is ' + this.area )
@@ -366,8 +366,8 @@ window.view = {
 				else
 					alert( 'Incorrect function call at line ' + String( i + 1 ) )
 			}
-			else if ( parameter.length === 2 && functionCall === 'area_rect()' && isNaN(parameter[0]) === false && isNaN(parameter[1]) === false )
-				this.area_rect(parameter, parsedValue)
+			else if ( parameter.length === 2 && functionCall === 'area_rightangletriangle()' && isNaN(parameter[0]) === false && isNaN(parameter[1]) === false )
+				this.area_rightangletriangle(parameter, parsedValue)
 			else
 		 	alert( 'Incorrect function call at line ' + String( i + 1 ) )
 		}	
